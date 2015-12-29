@@ -9,6 +9,7 @@
 #include "GLES-Render.h"
 #include "GameConstants.h"
 #include "Player.h"
+#include "b2djson\b2dJson.h"
 #include <map>
 
 class Player;

@@ -174,7 +174,18 @@ bool HelloWorld::init()
 	b2Vec2 gravity;
 	gravity.Set(0.0f, -9.8f);
 	
+	b2dJson loader;
+	std::string errorMessage;
 	_world = new b2World(gravity);
+	_world = loader.readFromFile("test.json", errorMessage, _world);
+
+	//CCLOG(errorMessage.c_str());
+
+	if (!errorMessage.empty()) {
+		
+		_world = new b2World(gravity);
+	}
+
 	_world->SetAllowSleeping(true);
 
 	m_b2dDebugDraw = new GLESDebugDraw(SCALE_RATIO);

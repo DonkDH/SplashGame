@@ -10,6 +10,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\b2djson">
+      <UniqueIdentifier>{59b30704-2034-4b4a-82ab-db175775729a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\b2djson\json">
+      <UniqueIdentifier>{2004180d-cbd6-42b8-a90f-4f8d12ce9e2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,6 +39,15 @@
     <ClCompile Include="..\Classes\PlayerContactListener.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\b2djson\b2dJson.cpp">
+      <Filter>src\b2djson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\b2djson\b2dJsonImage.cpp">
+      <Filter>src\b2djson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\b2djson\jsoncpp.cpp">
+      <Filter>src\b2djson</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -55,6 +70,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\PlayerContactListener.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2djson\b2dJson.h">
+      <Filter>src\b2djson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2djson\b2dJsonImage.h">
+      <Filter>src\b2djson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2djson\bitmap.h">
+      <Filter>src\b2djson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2djson\json\json.h">
+      <Filter>src\b2djson\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2djson\json\json-forwards.h">
+      <Filter>src\b2djson\json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
