@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d)
-$(call import-add-path,$(LOCAL_PATH)/../../cocos2d/external)
+$(call import-add-path,$(LOCAL_PATH)/../../cocos2d/external/Box2D)
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos)
 
 LOCAL_MODULE := cocos2dcpp_shared
@@ -21,6 +21,7 @@ LOCAL_SRC_FILES := $(HELLOCPP_FILES)
 LOCAL_SRC_FILES += $(CLASSES_FILES)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../cocos2d/external/Box2D
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -33,6 +34,7 @@ LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
 include $(BUILD_SHARED_LIBRARY)
 
+$(call import-module, Box2D)
 $(call import-module,.)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN

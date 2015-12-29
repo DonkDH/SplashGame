@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "Box2D\Box2D.h"
+#include "Box2D/Box2D.h"
 #include "GameConstants.h"
 #include "PlayerContactListener.h"
 #include "HelloWorldScene.h"

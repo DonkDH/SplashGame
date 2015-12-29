@@ -4,12 +4,12 @@
 #define COCOS2D_DEBUG 1
 
 #include "cocos2d.h"
-#include "ui\CocosGUI.h"
-#include "Box2D\Box2D.h"
+#include "ui/CocosGUI.h"
+#include "Box2D/Box2D.h"
 #include "GLES-Render.h"
 #include "GameConstants.h"
 #include "Player.h"
-#include "b2djson\b2dJson.h"
+#include "b2djson/b2dJson.h"
 #include <map>
 
 class Player;
