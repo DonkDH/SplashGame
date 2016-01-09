@@ -5,8 +5,8 @@ USING_NS_CC;
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
-    auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    auto scene = Scene::create();
+    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
@@ -30,8 +30,8 @@ bool HelloWorld::init()
 		return false;
 	}
 
-	auto body = PhysicsBody::createBox(Size(65.0f, 65.0f), PHYSICSBODY_MATERIAL_DEFAULT);
-	body->setPositionOffset(Vec2(2.0f, 2.0f));
+	//auto body = PhysicsBody::createBox(Size(65.0f, 65.0f), PHYSICSBODY_MATERIAL_DEFAULT);
+	//body->setPositionOffset(Vec2(2.0f, 2.0f));
 
 	auto touchListener = EventListenerTouchOneByOne::create();
 
@@ -45,7 +45,7 @@ bool HelloWorld::init()
 	auto keyboardPressedEventListener = EventListenerKeyboard::create();
 	keyboardPressedEventListener->onKeyPressed = [](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 		((HelloWorld*)event->getCurrentTarget())->KeyboardPressedInputHandler(keyCode);
 #endif
 	};
@@ -54,7 +54,7 @@ bool HelloWorld::init()
 	auto keyboardReleasedEventListener = EventListenerKeyboard::create();
 	keyboardReleasedEventListener->onKeyReleased = [](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 		((HelloWorld*)event->getCurrentTarget())->KeyboardReleasedInputHandler(keyCode);
 #endif
 	};
@@ -78,7 +78,7 @@ bool HelloWorld::init()
 		menu->setPosition(Vec2::ZERO);
 		this->addChild(menu, 1);
 	}
-#if ( CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 	// Jump
 	{
 		auto button = ui::Button::create("UpArrow.png", "UpArrow.png", "UpArrow.png");
@@ -396,7 +396,7 @@ void HelloWorld::update(float deltaTime)
 
 	player->Update(systemA);
 
-#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 	if (KeyHeld(cocos2d::EventKeyboard::KeyCode::KEY_W) || KeyHeld(cocos2d::EventKeyboard::KeyCode::KEY_SPACE))
 	{
 		player->Jump();
@@ -428,6 +428,10 @@ void HelloWorld::draw(cocos2d::Renderer* renderer, const Mat4& transform, uint32
 {
 	_world->DrawDebugData();
 }
+	
+void HelloWorld::updatePhysicsBodyTransform(const Mat4& parentTransform, uint32_t parentFlags, float parentScaleX, float parentScaleY)
+{
+}
 
 bool HelloWorld::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event *)
 {
@@ -452,11 +456,11 @@ void HelloWorld::onTouchCancelled(cocos2d::Touch * touch, cocos2d::Event *)
 {
 }
 
-#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 void HelloWorld::KeyboardPressedInputHandler(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	m_heldKeys.insert_or_assign(keyCode, std::chrono::high_resolution_clock::now());
-	m_pressedKeys.insert_or_assign(keyCode, true);
+	m_heldKeys.insert(std::map<cocos2d::EventKeyboard::KeyCode, std::chrono::high_resolution_clock::time_point>::value_type(keyCode, std::chrono::high_resolution_clock::now()));
+	m_pressedKeys.insert(std::map<cocos2d::EventKeyboard::KeyCode, bool>::value_type(keyCode, true));
 }
 
 void HelloWorld::KeyboardReleasedInputHandler(cocos2d::EventKeyboard::KeyCode keyCode)

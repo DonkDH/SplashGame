@@ -113,6 +113,7 @@ include_directories(
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
   ${COCOS2D_ROOT}/cocos/audio/include/
+  ${COCOS2D_ROOT}/external
   Classes
 )
 if ( WIN32 )
@@ -125,12 +126,28 @@ endif( WIN32 )
 set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
+  Classes/GameConstants.cpp
+  Classes/GLES-Render.cpp
+  Classes/Player.cpp
+  Classes/PlayerContactListener.cpp
+  Classes/b2djson/b2dJson.cpp
+  Classes/b2djson/b2dJsonImage.cpp
+  Classes/b2djson/jsoncpp.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
+  Classes/GameConstants.h
+  Classes/GLES-Render.h
+  Classes/Player.h
+  Classes/PlayerContactListener.h
+  Classes/b2djson/b2dJson.h
+  Classes/b2djson/b2dJsonImage.h
+  Classes/b2djson/bitmap.h
+  Classes/b2djson/json/json.h
+  Classes/b2djson/json/json-forwards.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 

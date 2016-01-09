@@ -12,12 +12,15 @@ set(BOX2D_SRC
   Collision/b2DynamicTree.cpp
   Collision/b2TimeOfImpact.cpp
   Common/b2BlockAllocator.cpp
-  Common/b2Draw.cpp  Common/b2FreeList.cpp
+  Common/b2Draw.cpp
+  Common/b2FreeList.cpp
   Common/b2Math.cpp
   Common/b2Settings.cpp
   Common/b2StackAllocator.cpp
-  Common/b2Stat.cpp  Common/b2Timer.cpp
-  Common/b2TrackedBlock.cpp  Dynamics/Contacts/b2ChainAndCircleContact.cpp
+  Common/b2Stat.cpp
+  Common/b2Timer.cpp
+  Common/b2TrackedBlock.cpp
+  Dynamics/Contacts/b2ChainAndCircleContact.cpp
   Dynamics/Contacts/b2ChainAndPolygonContact.cpp
   Dynamics/Contacts/b2CircleContact.cpp
   Dynamics/Contacts/b2Contact.cpp
@@ -45,7 +48,12 @@ set(BOX2D_SRC
   Dynamics/b2World.cpp
   Dynamics/b2WorldCallbacks.cpp
   Rope/b2Rope.cpp
-  Particle/b2Particle.cpp  Particle/b2ParticleAssembly.cpp  Particle/b2ParticleGroup.cpp  Particle/b2ParticleSystem.cpp  Particle/b2VoronoiDiagram.cpp)
+  Particle/b2Particle.cpp
+  Particle/b2ParticleAssembly.cpp
+  Particle/b2ParticleGroup.cpp
+  Particle/b2ParticleSystem.cpp
+  Particle/b2VoronoiDiagram.cpp
+)
 
 include_directories(
   ..

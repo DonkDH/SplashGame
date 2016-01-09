@@ -23,13 +23,15 @@ public:
 	void update(float) override;
 
 	virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) ;
+
+	virtual void updatePhysicsBodyTransform(const cocos2d::Mat4 &parentTransform, uint32_t parentFlags, float parentScaleX, float parentScaleY);	
 	
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);
 
-#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX )
 	void KeyboardPressedInputHandler(cocos2d::EventKeyboard::KeyCode keyCode);
 	void KeyboardReleasedInputHandler(cocos2d::EventKeyboard::KeyCode keyCode);
 
