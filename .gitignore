@@ -85,7 +85,10 @@ proj.ios_mac/*.xcodeproj/xcuserdata/
 !*.pch
 
 # proj.linux
-linux-build/bin/cocos2d/
+linux-build/bin/
+linux-build/CMakeFiles/
+linux-build/cocos2d/
+linux-build/lib/
 
 # proj.win32
 cocos2d/cocos/2d/Debug.*/
